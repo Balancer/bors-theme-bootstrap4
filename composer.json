@@ -1,0 +1,37 @@
+{
+	"name": "balancer/bors-3rd-bootstrap3",
+	"description": "Bootstrap3 assets for standalone usage or with BORS© framework components",
+	"license": "MIT",
+
+	"authors": [
+		{
+			"name": "Balancer",
+			"email": "balancer@balancer.ru"
+		}
+	],
+
+	"require": {
+		"atelierspierrot/assets-manager": "1.*"
+	},
+
+	"type": "bors-assets",
+
+    "autoload": {
+		"classmap": ["classes/"]
+    },
+
+	"extra": {
+		"assets-presets": {
+			"css-frameworks.bootstrap": {
+				"jsfiles_footer": "/js/bootstrap.min.js",
+				"css": ["/css/bootstrap.min.css", "/css/bootstrap-theme.min.css"],
+				"require": [
+					"/fonts/glyphicons-halflings-regular.eot",
+					"/fonts/glyphicons-halflings-regular.svg",
+					"/fonts/glyphicons-halflings-regular.ttf",
+					"/fonts/glyphicons-halflings-regular.woff"
+				]
+			}
+		}
+	}
+}
