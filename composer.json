@@ -32,6 +32,9 @@
 					"/fonts/glyphicons-halflings-regular.woff"
 				]
 			}
-		}
+		},
+
+        "bors-classes": "classes",
+        "bors-templates": "templates"
 	}
 }
