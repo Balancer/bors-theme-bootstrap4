@@ -10,31 +10,20 @@
 		}
 	],
 
+	"prefer-stable": true,
+	"minimum-stability": "dev",
+
 	"require": {
-		"atelierspierrot/assets-manager": "1.*"
+		"libra/libra-assets-installer": "*",
 	},
 
-	"type": "bors-assets",
+	"type": "asset-aware",
 
     "autoload": {
 		"classmap": ["classes/"]
     },
 
-	"extra": {
-		"assets-presets": {
-			"css-frameworks.bootstrap": {
-				"jsfiles_footer": "/js/bootstrap.min.js",
-				"css": ["/css/bootstrap.min.css", "/css/bootstrap-theme.min.css"],
-				"require": [
-					"/fonts/glyphicons-halflings-regular.eot",
-					"/fonts/glyphicons-halflings-regular.svg",
-					"/fonts/glyphicons-halflings-regular.ttf",
-					"/fonts/glyphicons-halflings-regular.woff"
-				]
-			}
-		},
-
-        "bors-classes": "classes",
-        "bors-templates": "templates"
+	"config": {
+		"public-dir": "htdocs/_bors-assets"
 	}
 }
