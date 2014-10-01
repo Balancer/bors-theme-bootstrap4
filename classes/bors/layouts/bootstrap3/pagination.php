@@ -4,10 +4,10 @@ class bors_layouts_bootstrap3_pagination extends bors_module
 {
 	function html_code()
 	{
-		$object = $this->attrs('object');
+		$object = $this->args('object');
 
 		if($object->total_pages() < 2)
-			return '--';
+			return '';
 
 //		if(empty($skip_title))
 //			$title = ec('<li>Страницы:</li>');
