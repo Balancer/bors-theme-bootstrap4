@@ -22,12 +22,35 @@
 	  <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+
+<?php
+	if(!empty($css_list))
+		foreach($css_list as $css)
+			echo "\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"{$css}\" />\n";
+
+	if(!empty($style))
+		echo bors_pages_helper::style($style);
+
+	if(!empty($javascript))
+	{
+		echo "<script type=\"text/javascript\"><!--\n";
+		foreach($javascript as $s)
+			echo $s,"\n";
+		echo "--></script>\n";
+	}
+?>
+
 </head>
 
 <body role="document">
 
 	<!-- Fixed navbar -->
-	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<?php
+if(empty($navbar_classes))
+	echo "<div class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">";
+else
+	echo "<div class=\"{$navbar_classes}\" role=\"navigation\">";
+?>
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -37,7 +60,12 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="<?= $self->project()->url();/*"*/?>"><?= htmlspecialchars($self->project()->title()); ?></a>
+<?php
+if(empty($brand_logo))
+	echo "<a class=\"navbar-brand\" href=\"{$self->project()->url()}\">".htmlspecialchars($self->project()->title())."</a>";
+else
+	echo "<a class=\"navbar-brand\" href=\"{$self->project()->url()}\">{$brand_logo}</a>";
+?>
 			</div>
 <?php
 	if($nav_menu = $self->get('navbar'))
@@ -97,6 +125,38 @@
 	<script src="../../assets/js/docs.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+<?php
+
+	if(!empty($js_include))
+		foreach($js_include as $s)
+			echo "<script type=\"text/javascript\" src=\"{$s}\"></script>\n";
+
+	if(!empty($js_include_post))
+		foreach($js_include_post as $s)
+			echo Element::script()->type("text/javascript")->src($s);
+
+	if(!empty($javascript_post) || !empty($jquery_document_ready))
+	{
+		echo "<script type=\"text/javascript\"><!--\n";
+		if(!empty($javascript_post))
+		{
+			foreach($javascript_post as $js)
+				echo $js;
+		}
+
+		if(!empty($jquery_document_ready))
+		{
+//			echo "\$(document).ready(function() {\n";
+			echo "\$(function() {\n";
+			foreach($jquery_document_ready as $js)
+				echo $js, "\n";
+			echo "})\n";
+		}
+
+		echo "--></script>\n";
+	}
+?>
 
 </body>
 </html>
