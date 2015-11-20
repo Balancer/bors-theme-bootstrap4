@@ -14,7 +14,6 @@
 	"minimum-stability": "dev",
 
 	"require": {
-		"libra/libra-assets-installer": "*"
 	},
 
 	"type": "asset-aware",
