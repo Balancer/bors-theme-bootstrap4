@@ -8,6 +8,8 @@ namespace B2\Layout\Bootstrap3;
 
 class Form extends \B2\Layout\Common\Form
 {
+	function layout_type() { return 'bootstrap'; }
+
 	function _form_table_css_def() { return 'table'; }
 	function _form_table_left_th_css_def() { return 'span4'; }
 
