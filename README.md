@@ -5,4 +5,5 @@ Bootstrap 3 assets
 
 Install:
 
-    composer require balancer/bors-3rd-bootstrap3=dev-master
+    composer require bors/theme-bootstrap3
+

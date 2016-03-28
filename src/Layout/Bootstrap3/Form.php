@@ -1,10 +1,12 @@
 <?php
 
+namespace B2\Layout\Bootstrap3;
+
 /*
 	Параметры для форм по умолчанию
 */
 
-class bors_layouts_bootstrap3_forms extends bors_forms_templates_default
+class Form extends \B2\Layout\Common\Form
 {
 	function _form_table_css_def() { return 'table'; }
 	function _form_table_left_th_css_def() { return 'span4'; }

@@ -1,6 +1,6 @@
 {
-	"name": "balancer/bors-3rd-bootstrap3",
-	"description": "Bootstrap3 assets for standalone usage or with BORS© framework components",
+	"name": "bors/theme-bootstrap3-cdn",
+	"description": "Bootstrap3 assets for use with BORS© framework",
 	"license": "MIT",
 
 	"authors": [
@@ -10,20 +10,10 @@
 		}
 	],
 
-	"prefer-stable": true,
-	"minimum-stability": "dev",
-
-	"require": {
-		"libra/libra-assets-installer": "*"
-	},
-
-	"type": "asset-aware",
-
     "autoload": {
-		"classmap": ["classes/"]
-    },
-
-	"config": {
-		"public-dir": "htdocs/_bors-assets"
-	}
+		"classmap": ["classes/"],
+		"psr-4": {
+			"B2\\": "src/"
+		}
+    }
 }
