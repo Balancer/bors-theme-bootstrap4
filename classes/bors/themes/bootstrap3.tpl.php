@@ -47,9 +47,9 @@
 	<!-- Fixed navbar -->
 <?php
 if(empty($navbar_classes))
-	echo "<div class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">";
+	echo "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">";
 else
-	echo "<div class=\"{$navbar_classes}\" role=\"navigation\">";
+	echo "<nav class=\"{$navbar_classes}\" role=\"navigation\">";
 ?>
 		<div class="container">
 			<div class="navbar-header">
@@ -70,13 +70,13 @@ else
 <?php
 	if($nav_menu = $self->get('navbar'))
 	{
-?>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-
-<?php
 		foreach($nav_menu as $title => $submenu)
 		{
+?>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+<?php
+
 			if(is_array($submenu))
 			{
 ?>
@@ -104,11 +104,11 @@ else
 	}
 ?>
 		</div>
-	</div>
+	</nav>
 
 	<div class="container theme-showcase" role="main">
 
-		<div class="jumbotron">
+		<div class="page-header">
 			<h1><?= $self->page_title() ?></h1>
 			<?php if($self->description()) echo "<p>".htmlspecialchars($self->description())."</p>"; ?>
 		</div>

@@ -5,12 +5,12 @@ class bors_layouts_bootstrap3_dropdown extends bors_layouts_html_dropdown
 	function html_code()
 	{
 //		return "<div class=\"dropdown\">\n".self::draw_dropdown($this->args('menu'))."\n</div>";
-		return self::draw_dropdown($this->args('menu'));
+		return self::draw_dropdown($this->args('menu'), 0, $this->args());
 	}
 
-	static function draw_dropdown($menu, $level=0)
+	static function draw_dropdown($menu, $level=0, $args = [])
 	{
-		$html = array();
+		$html = [];
 
 		foreach($menu as $title => $submenu)
 		{
@@ -27,8 +27,12 @@ class bors_layouts_bootstrap3_dropdown extends bors_layouts_html_dropdown
 
 			if($level == 0)
 			{
+				$icon_css = defval($args, 'icon_css');
+				if($icon_css)
+					$icon_css = "<i class=\"$icon_css\"></i>&nbsp;";
+
 				$dom_id = md5(rand());
-				$html[] = "<a href=\"".($url?$url:'#')."\" data-toggle=\"dropdown\" class=\"dropdown-toggle\" xid=\"{$dom_id}\">{$title} <span class=\"caret\"></span></a>";
+				$html[] = "<a href=\"".($url?$url:'#')."\" data-toggle=\"dropdown\" class=\"dropdown-toggle\" xid=\"{$dom_id}\">{$icon_css}{$title} <span class=\"caret\"></span></a>";
 				$html[] = "<ul class=\"dropdown-menu multi-level\" role=\"menu\" xaria-labelledby=\"{$dom_id}\">";
 			}
 			else
