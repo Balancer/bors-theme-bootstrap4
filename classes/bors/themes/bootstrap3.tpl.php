@@ -10,18 +10,12 @@
 
 	<title><?= htmlspecialchars($self->browser_title()); ?></title>
 
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous">
 
-	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-	<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	  <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	  <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
+<style>
+	body { padding-top: 70px; }
+</style>
 
 <?php
 	if(!empty($css_list))
@@ -70,11 +64,15 @@ else
 <?php
 	if($nav_menu = $self->get('navbar'))
 	{
-		foreach($nav_menu as $title => $submenu)
-		{
 ?>
 			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
+<?php
+		foreach($nav_menu as $title => $submenu)
+		{
+				$pull = popval($submenu, '*pull');
+				$icon_css = popval($submenu, '*icon_css');
+?>
+				<ul class="nav navbar-nav<?= ($pull=='right') ? ' navbar-right' : ''?>">
 <?php
 
 			if(is_array($submenu))
@@ -83,7 +81,7 @@ else
 				<li class="dropdown">
 <!--				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>-->
 <?php
-			bors_layouts_bootstrap3_dropdown::show(array('menu' => array($title => $submenu)));
+			bors_layouts_bootstrap3_dropdown::show(['menu' => [$title => $submenu], 'icon_css' => $icon_css]);
 ?>
 				</li>
 <?php
@@ -96,24 +94,45 @@ else
 					$url = $submenu;
 				echo "<li class=\"active2\"><a href=\"{$url}\">".htmlspecialchars($title)."</a></li>\n";
 			}
-		}
 ?>
 				</ul>
-			</div><!--/.nav-collapse -->
+<?php
+		}
+?>
 <?php
 	}
 ?>
+			</div><!--/.nav-collapse -->
 		</div>
 	</nav>
 
 	<div class="container theme-showcase" role="main">
+
+<?php
+	foreach(bors_lib_object::parent_lines($self) as $breadcrumbs_line)
+	{
+?>
+		<ol class="breadcrumb">
+<?php
+		foreach($breadcrumbs_line as $x)
+		{
+			if(empty($x['is_active']))
+				echo "<li><a href=\"{$x['url']}\">{$x['title']}</a></li>";
+			else
+				echo "<li class=\"active\">{$x['title']}</li>";
+		}
+?>
+		</ol>
+<?php
+	}
+?>
+
 
 		<div class="page-header">
 			<h1><?= $self->page_title() ?></h1>
 			<?php if($self->description()) echo "<p>".htmlspecialchars($self->description())."</p>"; ?>
 		</div>
 
-<?php require __DIR__.'/bootstrap3/breadcrumbs.tpl.php'; ?>
 
 		<?= $self->body() ?>
 
