@@ -77,8 +77,11 @@ else
 
 			if(is_array($submenu))
 			{
+				$pull = popval($submenu, '*pull');
+				if($pull)
+					$pull = " pull-right";
 ?>
-				<li class="dropdown">
+				<li class="dropdown<?=$pull?>">
 <!--				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>-->
 <?php
 			bors_layouts_bootstrap3_dropdown::show(['menu' => [$title => $submenu], 'icon_css' => $icon_css]);
