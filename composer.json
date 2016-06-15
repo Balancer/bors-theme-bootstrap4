@@ -26,6 +26,6 @@
     },
 
 	"config": {
-		"public-dir": "htdocs/_bors-assets"
+		"public-dir": "htdocs/_bors-asset"
 	}
 }
