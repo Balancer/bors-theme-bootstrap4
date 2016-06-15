@@ -69,15 +69,26 @@ else
 <?php
 		foreach($nav_menu as $title => $submenu)
 		{
-				$pull = popval($submenu, '*pull');
+			if(is_array($submenu))
+			{
 				$icon_css = popval($submenu, '*icon_css');
+				$pull = popval($submenu, '*pull');
+				if($t = popval($submenu, '*title'))
+					$title = $t;
+
+				if($u = popval($submenu, '*url') && empty($submenu))
+					$submenu = $u;
+
+				if(is_array($submenu) && count($submenu) == 1 && !empty($submenu[0]))
+					$submenu = $submenu[0];
+			}
 ?>
 				<ul class="nav navbar-nav<?= ($pull=='right') ? ' navbar-right' : ''?>">
 <?php
 
 			if(is_array($submenu))
 			{
-				$pull = popval($submenu, '*pull');
+
 				if($pull)
 					$pull = " pull-right";
 ?>
@@ -95,7 +106,9 @@ else
 					$url = "/$submenu/";
 				else
 					$url = $submenu;
-				echo "<li class=\"active2\"><a href=\"{$url}\">".htmlspecialchars($title)."</a></li>\n";
+				echo "<li class=\"active2\"><a href=\"{$url}\">"
+					.(empty($icon_css) ? '':'<i class="'.$icon_css.'"></i>&nbsp;')
+					.htmlspecialchars($title)."</a></li>\n";
 			}
 ?>
 				</ul>
