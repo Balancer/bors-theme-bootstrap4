@@ -12,7 +12,7 @@ class bors_layouts_bootstrap3_pagination extends bors_module
 //		if(empty($skip_title))
 //			$title = ec('<li>Страницы:</li>');
 
-        include_once("inc/design/page_split.php");
+        require_once BORS_CORE.'/inc/design/page_split.php';
 		$object->attr['___pagination_item_before'] = '<li>';
 		$object->attr['___pagination_item_before_current'] = '<li class="active">';
 		$object->attr['___pagination_item_after'] = '</li>';
