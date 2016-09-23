@@ -60,8 +60,15 @@
 			<div class="collapse navbar-collapse">
 	{foreach $nav_menu as $title => $submenu}
 		{$pull = popval($submenu, '*pull')}
+		{$force_title = popval($submenu, '*title')}
+		{if $force_title}
+			{$title = $force_title}
+		{/if}
 		{$icon_css = popval($submenu, '*icon_css')}
 				<ul class="nav navbar-nav{if $pull=='right'} navbar-right{/if}">
+		{if count($submenu) == 1 && !is_array($submenu[0])}
+			{$submenu = $submenu[0]}
+		{/if}
 		{if is_array($submenu)}
 					<li class="dropdown">
 <!--					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>-->
