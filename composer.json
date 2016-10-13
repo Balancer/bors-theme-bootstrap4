@@ -15,7 +15,6 @@
 
 	"require": {
         "balancer/bors-core": "*",
-        "fxp/composer-asset-plugin": "*",
         "bower-asset/bootstrap": "*"
 	},
 
