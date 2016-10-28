@@ -18,7 +18,7 @@ class bors_layouts_bootstrap3_forms extends bors_forms_templates_default
 	function _submit_css_def() { return 'btn'; }
 
 	function _form_container_html_def() { return "<div class=\"well container\">\n%s</div>\n"; }
-	function _form_row_html_def() { return "<div class=\"form-group\">\n%s\n%s</div>\n"; }
-	function _form_element_label_html_def() { return "\t<label>%s</label>"; }
-	function _form_element_html_def() { return "\t%s"; }
+	function _form_row_html_def() { return "\t<div class=\"form-group\">\n\t\t%s\n\t\t%s\n\t</div>\n"; }
+	function _form_element_label_html_def() { return "\t\t<label>\t\t\t%s\t\t</label>\n"; }
+	function _form_element_html_def() { return "\t\t%s\n"; }
 }
