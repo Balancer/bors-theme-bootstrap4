@@ -18,7 +18,7 @@ class bors_layouts_bootstrap3_forms extends bors_forms_templates_default
 	function _submit_css_def() { return 'btn'; }
 
 	// Common form outer html.
-	function _form_container_html_def() { return "<div class=\"well container\">\n%s</div>\n"; }
+	function _form_container_html_def() { return "%s"; }
 
 	// Form title
 	function _form_title_html_def() { return "<legend>%s</legend>"; }
