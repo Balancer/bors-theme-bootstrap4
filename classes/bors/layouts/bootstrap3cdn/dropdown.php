@@ -1,6 +1,6 @@
 <?php
 
-class bors_layouts_bootstrap3_dropdown extends bors_layouts_html_dropdown
+class bors_layouts_bootstrap3cdn_dropdown extends bors_layouts_html_dropdown
 {
 	function html_code()
 	{
