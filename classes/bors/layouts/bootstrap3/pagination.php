@@ -1,6 +1,6 @@
 <?php
 
-class bors_layouts_bootstrap3cdn_pagination extends bors_module
+class bors_layouts_bootstrap3_pagination extends bors_module
 {
 	function html_code()
 	{

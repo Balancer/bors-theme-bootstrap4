@@ -1,6 +1,6 @@
 <?php
 
-namespace B2\Layout\Bootstrap3cdn;
+namespace B2\Layout\Bootstrap3;
 
 /*
 	Параметры для форм по умолчанию
