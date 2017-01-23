@@ -1,5 +1,5 @@
 {
-	"name": "bors/theme-bootstrap3-cdn",
+	"name": "bors/theme-bootstrap3",
 	"description": "Bootstrap3 assets for use with BORS© framework",
 	"license": "MIT",
 
@@ -11,7 +11,7 @@
 	],
 
 	"require": {
-		"balancer/b2-core": "*"
+		"balancer/bors-core": "*"
 	},
 
     "autoload": {
