@@ -120,17 +120,18 @@ else
 
 	</div> <!-- /container -->
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="//maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
-
 <?php
 
 	if(!empty($js_include))
 		foreach($js_include as $s)
 			echo "<script type=\"text/javascript\" src=\"{$s}\"></script>\n";
+?>
 
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="//maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+
+<?php
 	if(!empty($js_include_post))
 		foreach($js_include_post as $s)
 			echo Element::script()->type("text/javascript")->src($s);
