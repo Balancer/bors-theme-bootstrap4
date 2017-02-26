@@ -27,14 +27,14 @@
 <?php
 	if(!empty($css_list))
 		foreach($css_list as $css)
-			echo "\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"{$css}\" />\n";
+			echo "\t\t<link rel=\"stylesheet\" href=\"{$css}\" />\n";
 
 	if(!empty($style))
 		echo bors_pages_helper::style($style);
 
 	if(!empty($javascript))
 	{
-		echo "<script type=\"text/javascript\"><!--\n";
+		echo "<script><!--\n";
 		foreach($javascript as $s)
 			echo $s,"\n";
 		echo "--></script>\n";
@@ -124,7 +124,7 @@ else
 
 	if(!empty($js_include))
 		foreach($js_include as $s)
-			echo "<script type=\"text/javascript\" src=\"{$s}\"></script>\n";
+			echo "<script src=\"{$s}\"></script>\n";
 ?>
 
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -138,7 +138,7 @@ else
 
 	if(!empty($javascript_post) || !empty($jquery_document_ready))
 	{
-		echo "<script type=\"text/javascript\"><!--\n";
+		echo "<script><!--\n";
 		if(!empty($javascript_post))
 		{
 			foreach($javascript_post as $js)
