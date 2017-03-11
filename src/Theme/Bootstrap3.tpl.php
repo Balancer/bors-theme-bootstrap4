@@ -10,8 +10,12 @@
 
 	<title><?= htmlspecialchars($self->browser_title()); ?></title>
 
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<?php
+	if(!empty($css_list))
+		foreach($css_list as $css)
+			echo "\t<link rel=\"stylesheet\" href=\"{$css}\" />\n";
+?>
 
 	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -25,10 +29,6 @@
 	<![endif]-->
 
 <?php
-	if(!empty($css_list))
-		foreach($css_list as $css)
-			echo "\t\t<link rel=\"stylesheet\" href=\"{$css}\" />\n";
-
 	if(!empty($style))
 		echo bors_pages_helper::style($style);
 
@@ -124,14 +124,8 @@ else
 
 	if(!empty($js_include))
 		foreach($js_include as $s)
-			echo "<script src=\"{$s}\"></script>\n";
-?>
+			echo "\t<script src=\"{$s}\"></script>\n";
 
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="//maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
-
-<?php
 	if(!empty($js_include_post))
 		foreach($js_include_post as $s)
 			echo Element::script()->type("text/javascript")->src($s);
