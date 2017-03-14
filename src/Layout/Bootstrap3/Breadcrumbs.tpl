@@ -6,5 +6,6 @@
 		{else}
 			<li><a href="{$x.url}">{$x.title}</a></li>
 		{/if}
+	{/foreach}
 </ol>
 {/foreach}
