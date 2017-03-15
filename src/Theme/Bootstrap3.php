@@ -17,7 +17,7 @@ class Bootstrap3 extends \B2\Theme\Common
 		}
 		else
 		{
-			$asset = '/bower-asset/bootstrap/dist';
+			$asset = \B2\cfg('bower-asset.path', '/bower-asset').'/bootstrap/dist';
 			bors_use($asset.'/css/bootstrap.min.css');
 			bors_use($asset.'/css/bootstrap-theme.min.css');
 			bors_use($asset.'/js/bootstrap.min.js');
