@@ -48,7 +48,7 @@
 	<!-- Fixed navbar -->
 <?php
 if(empty($navbar_classes))
-	echo "<div class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">";
+	echo "<div class=\"navbar navbar-inverse xnavbar-fixed-top\" role=\"navigation\">";
 else
 	echo "<div class=\"{$navbar_classes}\" role=\"navigation\">";
 ?>
@@ -109,10 +109,14 @@ else
 
 	<div class="container theme-showcase" role="main">
 
+<?php if($self->page_title() || $self->description()) { ?>
 		<div class="jumbotron">
+	<?php if($self->page_title()) { ?>
 			<h1><?= $self->page_title() ?></h1>
+	<?php } ?>
 			<?php if($self->description()) echo "<p>".htmlspecialchars($self->description())."</p>"; ?>
 		</div>
+<?php } ?>
 
 <?php require __DIR__.'/bootstrap3/breadcrumbs.tpl.php'; ?>
 
