@@ -8,6 +8,9 @@ class Bootstrap3 extends \B2\Theme\Common
 
 	function pre_show()
 	{
+		// Bootstrap's JavaScript requires jQuery
+		\B2\jQuery::load();
+
 		if(empty(\bors::$bower_asset_packages['bower-asset/bootstrap']))
 		{
 			bors_use('//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
