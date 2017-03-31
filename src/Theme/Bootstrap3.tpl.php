@@ -100,10 +100,69 @@ else
 		}
 ?>
 				</ul>
+
+<?php
+	if(!$me)
+	{
+		// http://mifsud.me/adding-dropdown-login-form-bootstraps-navbar/
+?>
+				<ul class="nav pull-right">
+<?php
+		if($self->b2_app()->get('register_url'))
+		{
+?>
+					<li><a href="<?= $app->register_url()?>">Зарегистрироваться</a></li>
+<?php
+		}
+?>
+					<li class="divider-vertical"></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" href="http://www.balancer.ru/forum/punbb/login.php" data-toggle="dropdown">Войти <strong class="caret"></strong></a>
+						<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+							<form action="/do-login/" method="post" accept-charset="UTF-8">
+								<input id="user_username" style="margin-bottom: 15px;" type="text" name="req_username" size="30" />
+								<input id="user_password" style="margin-bottom: 15px;" type="password" name="req_password" size="30" />
+								<input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Войти" />
+							</form>
+						</div>
+					</li>
+				</ul>
+<?php
+	}
+	else
+	{
+		if(empty($user_bar))
+			$user_bar = $self->get('user_bar');
+
+		if($user_bar)
+		{
+?>
+				<ul class="nav pull-right">
+					<li class="divider-vertical"></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon-user icon-white"></i> <?=$me->title()?> <strong class="caret"></strong></a>
+						<ul class="dropdown-menu">
+<?php
+			foreach($user_bar as $title => $url)
+			{
+?>
+							<li><a href="<?=$url?>"><?=$title?></a></li>
+<?php
+			}
+?>
+						</ul>
+					</li>
+				</ul>
+<?php
+	}
+}
+?>
+
 			</div><!--/.nav-collapse -->
 <?php
 	}
 ?>
+
 		</div>
 	</div>
 
