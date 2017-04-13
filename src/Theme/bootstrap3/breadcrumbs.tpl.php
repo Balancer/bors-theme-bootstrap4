@@ -1,4 +1,5 @@
 <?php
+
 	foreach(bors_lib_object::parent_lines($self) as $breadcrumbs_line)
 	{
 ?>

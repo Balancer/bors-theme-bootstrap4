@@ -69,24 +69,28 @@ else
 ?>
 			</div>
 <?php
-	if($nav_menu = $self->get('navbar'))
+	$navbar = $self->get('navbar');
+	if(!$navbar)
+		$navbar = $self->b2_app()->get('navbar');
+
+	if($navbar)
 	{
 ?>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 
 <?php
-		foreach($nav_menu as $title => $submenu)
+		foreach($navbar as $title => $submenu)
 		{
 			if(is_array($submenu))
 			{
 ?>
-				<li class="dropdown">
-<!--				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>-->
+					<li class="dropdown">
+<!--					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>-->
 <?php
 			bors_layouts_bootstrap3_dropdown::show(array('menu' => array($title => $submenu)));
 ?>
-				</li>
+					</li>
 <?php
 			}
 			else
@@ -102,40 +106,47 @@ else
 				</ul>
 
 <?php
-	if(!$me)
-	{
-		// http://mifsud.me/adding-dropdown-login-form-bootstraps-navbar/
-?>
-				<ul class="nav pull-right">
-<?php
-		if($self->b2_app()->get('register_url'))
+
+		if(!$me)
 		{
+			// http://mifsud.me/adding-dropdown-login-form-bootstraps-navbar/
 ?>
-					<li><a href="<?= $app->register_url()?>">Зарегистрироваться</a></li>
+				<ul class="nav navbar-nav navbar-right">
 <?php
-		}
+			if($self->b2_app()->get('register_url'))
+			{
 ?>
-					<li class="divider-vertical"></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" href="http://www.balancer.ru/forum/punbb/login.php" data-toggle="dropdown">Войти <strong class="caret"></strong></a>
-						<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-							<form action="/do-login/" method="post" accept-charset="UTF-8">
-								<input id="user_username" style="margin-bottom: 15px;" type="text" name="req_username" size="30" />
-								<input id="user_password" style="margin-bottom: 15px;" type="password" name="req_password" size="30" />
-								<input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Войти" />
-							</form>
+					<li><a href="<?= $self->b2_app()->register_url()?>"><?=_('Register')?></a></li>
+<?php
+			}
+
+			if($self->b2_app()->get('login_url'))
+			{
+?>
+					<li class="dropdown" id="menuLogin">
+						<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"><?=_('Login')?></a>
+						<div class="dropdown-menu" style="padding:17px;">
+							<form class="form" id="formLogin" action="<?=$self->b2_app()->get('login_url')?>" method="post">
+								<input name="username" id="username" type="text" class="form-control" placeholder="<?=_('Username')?>">
+								<input name="password" id="password" type="password" class="form-control" placeholder="<?=_('Password')?>"><br>
+								<button type="button" id="btnLogin" class="btn"><?=_('Login')?></button>
+					  		</form>
 						</div>
 					</li>
+
+<?php
+			}
+?>
 				</ul>
 <?php
-	}
-	else
-	{
-		if(empty($user_bar))
-			$user_bar = $self->get('user_bar');
-
-		if($user_bar)
+		}
+		else
 		{
+			if(empty($user_bar))
+				$user_bar = $self->get('user_bar');
+
+			if($user_bar)
+			{
 ?>
 				<ul class="nav pull-right">
 					<li class="divider-vertical"></li>
@@ -143,19 +154,19 @@ else
 						<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon-user icon-white"></i> <?=$me->title()?> <strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
 <?php
-			foreach($user_bar as $title => $url)
-			{
+				foreach($user_bar as $title => $url)
+				{
 ?>
 							<li><a href="<?=$url?>"><?=$title?></a></li>
 <?php
-			}
+				}
 ?>
 						</ul>
 					</li>
 				</ul>
 <?php
-	}
-}
+			}
+		}
 ?>
 
 			</div><!--/.nav-collapse -->
