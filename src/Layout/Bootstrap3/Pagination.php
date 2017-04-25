@@ -1,6 +1,8 @@
 <?php
 
-class bors_layouts_bootstrap3_pagination extends bors_module
+namespace B2\Layout\Bootstrap3;
+
+class Pagination extends \B2\Layout\Module
 {
 	function html_code()
 	{
