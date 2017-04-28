@@ -1,4 +1,4 @@
-{foreach bors_lib_object::parent_lines($view) as $breadcrumbs_line}
+{foreach $breadcrumbs as $breadcrumbs_line}
 <ol class="breadcrumb">
 	{foreach $breadcrumbs_line as $x}
 		{if $x.is_active}
