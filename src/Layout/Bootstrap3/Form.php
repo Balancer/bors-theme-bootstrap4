@@ -18,7 +18,7 @@ class Form extends \B2\Layout\Common\Form
 
 	function _dropdown_css_def() { return 'span8'; }
 
-	function _submit_css_def() { return 'btn'; }
+	function _submit_css_def() { return 'btn btn-default'; }
 
 	// Common form outer html.
 	function _form_container_html_def() { return "%s"; }
