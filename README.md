@@ -1,8 +1,5 @@
-Bootstrap 3 assets
-==================
-
-[Under pre-alpha testing]
+# Bootstrap 3 BORS© theme & layout
 
 Install:
 
-    composer require balancer/bors-3rd-bootstrap3=dev-master
+    composer require balancer/bors-theme-bootstrap3

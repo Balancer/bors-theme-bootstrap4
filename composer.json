@@ -10,18 +10,15 @@
 		}
 	],
 
-	"prefer-stable": true,
-	"minimum-stability": "dev",
-
 	"require": {
-        "balancer/bors-core": "*",
-        "bower-asset/bootstrap": "*"
+		"balancer/bors-core": "*",
+		"bors/jquery": "*"
 	},
 
-    "autoload": {
+	"autoload": {
 		"classmap": ["classes/"],
 		"psr-4": {
-			"B2\\": "src"
+			"B2\\": "src/"
 		}
-    }
+	}
 }
