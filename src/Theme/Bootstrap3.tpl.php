@@ -188,7 +188,7 @@ else
 		</div>
 <?php } ?>
 
-<?php require __DIR__.'/bootstrap3/breadcrumbs.tpl.php'; ?>
+<?php require __DIR__.'/Bootstrap3/breadcrumbs.tpl.php'; ?>
 
 		<?= $self->body() ?>
 

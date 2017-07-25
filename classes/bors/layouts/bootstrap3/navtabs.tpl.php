@@ -3,9 +3,9 @@
 if(!$tabs)
 	return;
 
-echo "<ul class=\"{$layout->ul_tab_class()}\">\n";
+echo "<ul class=\"nav nav-tabs\">\n";
 
 foreach($tabs as $title => $link)
-	echo "<li><a href=\"{$link}\">".htmlspecialchars($title)."</a></li>\n";
+	echo "<li".($self->is_active_tab($link) ? ' class="active"' : '')."><a href=\"{$link}\">".htmlspecialchars($title)."</a></li>\n";
 
 echo "</ul>\n";
