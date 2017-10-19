@@ -32,18 +32,22 @@ if($navbar)
 		{
 			$link = Link::create($url, '')
 				->addClass("dropdown-toggle")
-			;
-
-			$link->appendChild(Element::i()->addClass($icon));
-
-			$link->appendChild(Element::span($title.'&nbsp;&nbsp;<i class="fa fa-folder-open-o"></i>')->addClass("hidden-xs"));
+				->appendChild(Element::i()->addClass($icon))
+				->appendChild(Element::span($title))//.'&nbsp;&nbsp;<i class="fa fa-folder-open-o"></i>')->addClass("hidden-xs"));
+				->appendChild(Element::span('<i class="fa fa-angle-left pull-right"></i>')->addClass("pull-right-container"));
 
 //			$link->appendChild(Element::i()->addClass("fa fa-folder-o")->addClass('pull-right'));
-			$el = Element::li()->addClass("dropdown")
+			$el = Element::li()->addClass($li_tree_css ?: "dropdown")
 				->nest($link);
 
-			if($append = trim(bors_layouts_bootstrap3_dropdown::draw_dropdown([$title => $items], 1)))
-				@$el->appendChild($append);
+			if($append = trim(\bors_layouts_bootstrap3_dropdown::draw_dropdown([$title => $items], 1)))
+			{
+				$ul = Element::ul(preg_replace("!^<ul[^>]*>(.+)</ul>$!s", '$1', $append))
+					->addClass('treeview-menu');
+//				dump((string)$ul);
+				if($ul)
+					$el->appendChild($ul);
+			}
 		}
 		else
 		{
