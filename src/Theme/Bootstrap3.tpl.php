@@ -71,7 +71,7 @@ else
 <?php
 	$navbar = $self->get('navbar');
 	if(!$navbar)
-		$navbar = $self->b2_app()->get('navbar');
+		$navbar = object_property($self->app(), 'navbar');
 
 	if($navbar)
 	{
@@ -113,20 +113,20 @@ else
 ?>
 				<ul class="nav navbar-nav navbar-right">
 <?php
-			if($self->b2_app()->get('register_url'))
+			if($self->app()->get('register_url'))
 			{
 ?>
-					<li><a href="<?= $self->b2_app()->register_url()?>"><?=_('Register')?></a></li>
+					<li><a href="<?= $self->app()->register_url()?>"><?=_('Register')?></a></li>
 <?php
 			}
 
-			if($self->b2_app()->get('login_url'))
+			if($self->app()->get('login_url'))
 			{
 ?>
 					<li class="dropdown" id="menuLogin">
 						<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"><?=_('Login')?></a>
 						<div class="dropdown-menu" style="padding:17px;">
-							<form class="form" id="formLogin" action="<?=$self->b2_app()->get('login_url')?>" method="post">
+							<form class="form" id="formLogin" action="<?=$self->app()->get('login_url')?>" method="post">
 								<input name="username" id="username" type="text" class="form-control" placeholder="<?=_('Username')?>">
 								<input name="password" id="password" type="password" class="form-control" placeholder="<?=_('Password')?>"><br>
 								<button type="button" id="btnLogin" class="btn"><?=_('Login')?></button>
