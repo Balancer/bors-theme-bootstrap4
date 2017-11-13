@@ -12,6 +12,7 @@
 
 	"require": {
 		"balancer/bors-core": "*",
+		"bors/bootstrap3": "*",
 		"bors/jquery": "*"
 	},
 
