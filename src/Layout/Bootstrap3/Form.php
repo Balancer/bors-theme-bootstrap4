@@ -34,6 +34,6 @@ class Form extends \B2\Layout\Common\Form
 	function _form_row_error_css_def() { return 'has-error'; }
 	function _form_row_html_def() { return "\t<div%s>\n\t\t%s\n\t\t%s\n\t</div>\n"; }
 
-	function _form_element_label_html_def() { return "\t\t<label>\t\t\t%s\t\t</label>\n"; }
+	function _form_element_label_html_def() { return "\t\t<label>\t\t\t%s\t\t</label><br/>\n"; }
 	function _form_element_html_def() { return "\t\t%s\n"; }
 }
