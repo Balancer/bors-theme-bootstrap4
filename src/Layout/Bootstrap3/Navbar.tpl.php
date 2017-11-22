@@ -59,7 +59,7 @@ if($navbar)
 		}
 
 		if(blib_urls::is_parent($url, bors()->request()->url()))
-			$el->addClass('need-toggle');
+			$el->addClass('need-toggle active');
 
 		echo $el;
 	}
