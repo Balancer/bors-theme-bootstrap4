@@ -12,9 +12,17 @@ if($navbar)
 		if(is_array($items))
 		{
 			$url = popval($items, 'url');
-			$icon = popval($items, 'i_class');
-			if(!$icon)
-				$icon = 'fa fa-circle-o';
+
+			if($fa = popval($items, 'fa'))
+				$icon = 'fa fa-'.$fa;
+			else
+			{
+				$icon = popval($items, 'i_class');
+
+				if(!$icon)
+					$icon = 'fa fa-circle-o';
+			}
+
 			if(count($items) < 1)
 				$items = array_pop($items);
 		}
