@@ -16,6 +16,11 @@
 		"bors/jquery": "*"
 	},
 
+
+	"replace": {
+		"balancer/bors-3rd-bootstrap3": "*"
+	},
+
 	"autoload": {
 		"classmap": ["classes/"],
 		"psr-4": {
