@@ -80,15 +80,33 @@ else
 				<ul class="nav navbar-nav">
 
 <?php
+
 		foreach($navbar as $title => $submenu)
 		{
+			if(is_array($submenu))
+			{
+
+				if($fa = popval($submenu, 'fa'))
+					$icon = 'fa fa-'.$fa;
+				else
+				{
+					$icon = popval($submenu, 'i_class');
+
+					if(!$icon)
+						$icon = 'fa fa-circle-o';
+				}
+
+				if(count($submenu) == 1)
+					$submenu = array_pop($submenu);
+			}
+
 			if(is_array($submenu))
 			{
 ?>
 					<li class="dropdown">
 <!--					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>-->
 <?php
-			bors_layouts_bootstrap3_dropdown::show(array('menu' => array($title => $submenu)));
+			bors_layouts_bootstrap3_dropdown::show(['menu' => [$title => $submenu], 'icon_css' => $icon]);
 ?>
 					</li>
 <?php
@@ -99,7 +117,7 @@ else
 					$url = "/$submenu/";
 				else
 					$url = $submenu;
-				echo "<li class=\"active2\"><a href=\"{$url}\">".htmlspecialchars($title)."</a></li>\n";
+				echo "<li class=\"active2\"><a href=\"{$url}\">".($icon?"<i class=\"$icon\"></i> ":'').htmlspecialchars($title)."</a></li>\n";
 			}
 		}
 ?>
