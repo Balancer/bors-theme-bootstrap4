@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="<?= htmlspecialchars($self->description());/*"*/?>">
+	<meta name="description" content="<?= htmlspecialchars($self->browser_description());/*"*/?>">
 	<meta name="author" content="">
 <?php /*	<link rel="icon" href="../../favicon.ico"> */?>
 
@@ -197,12 +197,12 @@ else
 
 	<div class="container theme-showcase" role="main">
 
-<?php if($self->page_title() || $self->description()) { ?>
+<?php if($self->page_title() || $self->page_description()) { ?>
 		<div class="jumbotron">
 	<?php if($self->page_title()) { ?>
 			<h1><?= $self->page_title() ?></h1>
 	<?php } ?>
-			<?php if($self->description()) echo "<p>".htmlspecialchars($self->description())."</p>"; ?>
+			<?php if($self->page_description()) echo "<p>".htmlspecialchars($self->page_description())."</p>"; ?>
 		</div>
 <?php } ?>
 
