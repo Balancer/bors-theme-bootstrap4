@@ -6,7 +6,7 @@
 	{if $x->get('image') && !$x->is_null()}
 				<a href="{$x->url()}">
 					<div class="flex-img-holder">
-		{$x->image()->thumbnail('200x150(up,crop)')->html()}
+		{$x->image()->thumbnail('320x240(up,crop)')->html()}
 					</div>
 				</a>
 	{/if}

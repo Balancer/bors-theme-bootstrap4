@@ -5,7 +5,7 @@
 		<div class="col-xs-6 col-sm-4 col-lg-3">
 			<div class="thumbnail">
 	{if $x->image() && !$x->is_null()}
-				{$x->image()->thumbnail('200x150(up,crop)')->html()}
+				{$x->image()->thumbnail('320x240(up,crop)')->html()}
 	{/if}
 				<div class="caption">
 					<h3>{$x->titled_link()}</h2>
