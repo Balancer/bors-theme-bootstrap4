@@ -15,6 +15,23 @@ class Button extends \B2\Layout\Module
 		if($icon_class = $this->arg('icon-class'))
 			$label = "<i class=\"{$icon_class}\"></i> $label";
 
-		return "<a href=\"$url\" class=\"btn btn-default\">{$label}</a>";
+		$this->url   = $url;
+		$this->label = $label;
+
+		return $this;
+	}
+
+	function url($url = false)
+	{
+		if($url === false)
+			return $this->url;
+
+		$this->url = $url;
+		return $this;
+	}
+
+	function __toString()
+	{
+		return "<a href=\"{$this->url()}\" class=\"btn btn-default\">{$this->label()}</a>";
 	}
 }
