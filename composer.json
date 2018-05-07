@@ -1,6 +1,6 @@
 {
-	"name": "balancer/bors-theme-bootstrap3",
-	"description": "Bootstrap3 assets for use with BORS© framework",
+	"name": "balancer/bors-theme-bootstrap4",
+	"description": "Bootstrap4 assets for use with BORS© framework",
 	"license": "MIT",
 
 	"authors": [
@@ -12,13 +12,8 @@
 
 	"require": {
 		"balancer/bors-core": "*",
-		"bors/bootstrap3": "*",
+		"bors/bootstrap4": "*",
 		"bors/jquery": "*"
-	},
-
-
-	"replace": {
-		"balancer/bors-3rd-bootstrap3": "*"
 	},
 
 	"autoload": {
