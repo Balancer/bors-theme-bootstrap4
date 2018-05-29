@@ -1,8 +1,8 @@
 <?php
 
-namespace B2\Layout;
+namespace B2\Theme\Bootstrap4;
 
-class Bootstrap3 extends \B2\Layout
+class Layout extends \B2\Layout\Bootstrap3
 {
 	function table_class() { return 'table table-bordered table-striped'; }
 	function ul_tab_class() { return 'nav nav-tabs'; }

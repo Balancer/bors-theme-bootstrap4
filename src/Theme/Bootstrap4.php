@@ -4,7 +4,7 @@ namespace B2\Theme;
 
 class Bootstrap4 extends \B2\Theme\Common
 {
-	function _layout_class_def() { return \B2\Layout\Bootstrap4::class; }
+	function _layout_class_def() { return Bootstrap4\Layout::class; }
 
 	function pre_show()
 	{
