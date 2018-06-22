@@ -48,26 +48,22 @@
 	<!-- Fixed navbar -->
 <?php
 if(empty($navbar_classes))
-	echo "<div class=\"navbar navbar-inverse xnavbar-fixed-top\" role=\"navigation\">";
+	echo "<nav class=\"navbar navbar-expand-sm navbar-dark bg-dark\">";
 else
-	echo "<div class=\"{$navbar_classes}\" role=\"navigation\">";
+	echo "<nav class=\"{$navbar_classes}\">";
 ?>
 		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-
 <?php
 if(empty($brand_logo))
 	echo "<a class=\"navbar-brand\" href=\"{$self->project()->url()}\">".htmlspecialchars($self->project()->title())."</a>";
 else
 	echo "<a class=\"navbar-brand\" href=\"{$self->project()->url()}\">{$brand_logo}</a>";
 ?>
-			</div>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
 <?php
 	$navbar = $self->get('navbar');
 	if(!$navbar)
@@ -76,8 +72,8 @@ else
 	if($navbar)
 	{
 ?>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav mr-auto">
 
 <?php
 
@@ -117,6 +113,7 @@ else
 					$url = "/$submenu/";
 				else
 					$url = $submenu;
+
 				echo "<li class=\"active2\"><a href=\"{$url}\">".($icon?"<i class=\"$icon\"></i> ":'').htmlspecialchars($title)."</a></li>\n";
 			}
 		}
@@ -191,9 +188,8 @@ else
 <?php
 	}
 ?>
-
-		</div>
-	</div>
+		</div><?php /* /.container */ ?>
+	</nav>
 
 	<div class="container theme-showcase" role="main">
 
